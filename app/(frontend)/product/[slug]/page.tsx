@@ -152,15 +152,16 @@ const Page: NextPage<PageProps> = async ({ params }) => {
                   colors={productDetails.colors}
                   stocks={productDetails.stocks}
                 />
+                
                 <Stock productDetails={productDetails} />
 
                 {/* Display SKU */}
-                {productDetails?.stocks?.length > 0 &&
+                {/* {productDetails?.stocks?.length > 0 &&
                   productDetails.stocks[0]?.sku && (
                     <div className="product-sku">
                       <span>SKU: {productDetails.stocks[0].sku}</span>
                     </div>
-                  )}
+                  )} */}
 
                 <div className="button_area flex items-center gap-3 ">
                   <BuyNow id={productDetails.id} />

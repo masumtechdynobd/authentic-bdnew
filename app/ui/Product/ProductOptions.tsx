@@ -26,7 +26,7 @@ interface ChoiceOption {
 }
 
 const ProductOptions: React.FC<ProductOptionsProps> = ({ id, choice_options, colors, stocks }: any) => {
-    const { setQty, setPriceValue, combinationName,combinationImage, setCombinationName,setCombinationImage, selectColoreVariant, setSelectColoreVariant } = productStore();
+    const { sku, setSku, setQty, setPriceValue, combinationName,combinationImage, setCombinationName,setCombinationImage, selectColoreVariant, setSelectColoreVariant } = productStore();
     const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>({});
     const [selectedColor, setSelectedColor] = useState('');
     const [combination, setCombination] = useState('');
@@ -109,6 +109,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({ id, choice_options, col
             if (variantPrice) {
                 setPriceValue(variantPrice.price);
                 setQty(variantPrice.qty);
+                setSku(variantPrice.sku);
                 setCombinationName(combination)
             }
             const exist = existProduct()
@@ -148,6 +149,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({ id, choice_options, col
                 });
                 // return false
                 if (response.data) {
+                    setSku(response.data.sku);
                     setCombinationId(response.data.id)
                     setPriceValue(response.data.price_string);
                     setQty(response.data.stock);
