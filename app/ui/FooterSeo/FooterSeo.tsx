@@ -89,13 +89,13 @@ export default async function FooterSeo({isMobile, translate, setting}:any) {
 
           <AccordionItem value="item-3" className="block md:hidden">
             <AccordionTrigger className={` ${isMobile ? 'text-white' :''} AccordionTrigger`}>
-            About Information
+            {about_authentic_bd || "About Authentic Bd.com"}
             </AccordionTrigger>
             <AccordionContent>
             
                     <div className="">
                         <div className="">
-                            <h4 className='font-medium uppercase text-base text-center text-white mt-6'>{about_authentic_bd || "About Authentic Bd.com"}</h4>
+                            {/* <h4 className='font-medium uppercase text-base text-center text-white mt-6'>{about_authentic_bd || "About Authentic Bd.com"}</h4> */}
                             <div>
                                 <ul className='flex items-center text-white sm:items-start flex-col gap-[12px] sm:gap-[18px] pt-[16px] sm:pt-[27px] text-sm sm:text-base' >
                                     <li><Link href='/page/about-us' >{footer_about_us || "About Us"}</Link></li>

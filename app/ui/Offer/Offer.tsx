@@ -19,7 +19,7 @@ export default async function Offer() {
                   width={365}
                   height={220}
                   alt="offer"
-                  className="object-contain transition-transform duration-300 ease-in-out transform "
+                  className="object-contain transition-transform duration-300 ease-in-out transform rounded-lg"
                 />
               </div>
             </Link>

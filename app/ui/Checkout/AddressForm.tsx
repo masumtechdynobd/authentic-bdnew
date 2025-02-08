@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function AddressForm({
   errors,
@@ -17,16 +18,30 @@ export default function AddressForm({
   cities,
   formData,
   setFormData,
+  user, // Assuming user is passed in as a prop or fetched from a context
 }: any) {
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  useEffect(() => {
+    // If the user is authenticated, set the form data to their saved information
+    if (user) {
+      setFormData({
+        ...formData,
+        fullName: user.name || "",
+        email: user.email || "",
+        phone: user.phone || "",
+        address: user.address || "",
+        country_id: user.country_id || "",
+        state_id: user.state_id || "",
+        city_id: user.city_id || "",
+      });
+    }
+  }, [user]); // This will run when `user` is updated
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    // Clear error when user starts typing
     if (errors?.[name]) {
       setErrors({ ...errors, [name]: "" });
     }
@@ -164,7 +179,7 @@ export default function AddressForm({
       {/* State */}
       {state && state.length > 1 && (
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">State</label>
+          <label className="block text-sm font-medium mb-2">Select City</label>
           <Select value={formData?.state_id} onValueChange={handleSelectState}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select a state" />
@@ -186,7 +201,7 @@ export default function AddressForm({
       {/* City */}
       {cities.length > 0 && (
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">City</label>
+          <label className="block text-sm font-medium mb-2">Select Area</label>
           <Select value={formData?.city_id} onValueChange={handleSelectCities}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select a city" />

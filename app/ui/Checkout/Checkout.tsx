@@ -623,7 +623,7 @@ export default function Checkout({ total_point, data, addressList }: any) {
                   />
                   <span>Outside Dhaka - ৳{Number(outSide_dhaka?.value)}</span>
                 </label>
-                <label className="flex items-center space-x-2 text-base">
+                {/* <label className="flex items-center space-x-2 text-base">
                   <input
                     type="checkbox"
                     className="form-checkbox text-primary"
@@ -634,7 +634,7 @@ export default function Checkout({ total_point, data, addressList }: any) {
                     Fast Delivery Inside Dhaka within (8 hours) & Outside Dhaka
                     (2 days) [N.B] you should bear extra 100 BDT
                   </span>
-                </label>
+                </label> */}
               </div>
             </div>
             {/* Cart Summary */}
