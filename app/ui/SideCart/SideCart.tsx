@@ -35,7 +35,7 @@ export default function SideCart() {
 
     useEffect(() => {
         getSummary()
-        // calculateSummary();
+        calculateSummary();
     }, [cartData]);
 
     const calculateSummary = () => {

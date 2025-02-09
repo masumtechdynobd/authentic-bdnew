@@ -1106,3 +1106,19 @@
 .AccordionTrigger[data-state='open'] > .minusIcon {
   display: block !important;
 }
+
+
+
+.short_des p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.short_des ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.short_des li {
+  margin-bottom: 5px;
+}

@@ -182,7 +182,7 @@ export default function AddressForm({
           <label className="block text-sm font-medium mb-2">Select City</label>
           <Select value={formData?.state_id} onValueChange={handleSelectState}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select a state" />
+              <SelectValue placeholder="Select a city" />
             </SelectTrigger>
             <SelectContent>
               {state.map((item: any) => (
@@ -204,7 +204,7 @@ export default function AddressForm({
           <label className="block text-sm font-medium mb-2">Select Area</label>
           <Select value={formData?.city_id} onValueChange={handleSelectCities}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select a city" />
+              <SelectValue placeholder="Select a area" />
             </SelectTrigger>
             <SelectContent>
               {cities.map((item: any) => (
