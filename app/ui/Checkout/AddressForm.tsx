@@ -32,11 +32,14 @@ export default function AddressForm({
         country_id: user.country_id || "",
         state_id: user.state_id || "",
         city_id: user.city_id || "",
+        additionalNote: user.additionalNote || "",
       });
     }
   }, [user]); // This will run when `user` is updated
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -233,6 +236,18 @@ export default function AddressForm({
         {errors?.address && (
           <p className="text-red-500 text-sm mt-1">{errors.address}</p>
         )}
+      </div>
+
+      {/* Additional Note */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">Note</label>
+        <Textarea
+          name="additionalNote"
+          placeholder="Any additional notes (optional)"
+          className="w-full"
+          value={formData.additionalNote}
+          onChange={handleInputChange}
+        />
       </div>
     </>
   );
